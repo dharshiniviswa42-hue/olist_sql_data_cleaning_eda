@@ -1,14 +1,14 @@
-# 🛒 Olist Brazilian E-Commerce — SQL Data Analysis
+#  Olist Brazilian E-Commerce — SQL Data Analysis
 
 An end-to-end SQL analysis of the **Olist Brazilian E-Commerce** dataset, covering data cleaning, exploratory data analysis (EDA), and business recommendations derived purely from verified SQL query outputs.
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 Olist is a Brazilian e-commerce marketplace that connects small businesses to customers across Brazil. This project analyzes order, payment, delivery, and review data across multiple linked tables to uncover revenue trends, payment behavior, and delivery performance — and translates those findings into actionable business recommendations.
 
-## 🎯 Objective
+##  Objective
 
 To analyze Olist's order and payment data to:
 - Measure overall business scale (orders & revenue)
@@ -18,7 +18,7 @@ To analyze Olist's order and payment data to:
 - Evaluate order fulfillment health and delivery performance
 - Recommend data-driven strategies to improve revenue and customer retention
 
-## 🛠️ Tools & Technologies
+##  Tools & Technologies
 
 | Tool | Purpose |
 |------|---------|
@@ -26,11 +26,11 @@ To analyze Olist's order and payment data to:
 | **Workbench / Jupyter (SQLAlchemy)** | Database connection & query execution |
 | **9 relational tables** | orders, order_items, order_payments, order_reviews, products, customers, sellers, geolocation, category_translation |
 
-## 📂 Dataset
+##  Dataset
 
 The dataset contains 9 interlinked CSV tables sourced from Olist's public Brazilian e-commerce dataset, covering ~100K orders placed between 2016–2018, including order status, payment, freight performance, and customer reviews.
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 olist-ecommerce-sql-analysis/
@@ -41,7 +41,7 @@ olist-ecommerce-sql-analysis/
 
 ---
 
-## 🧹 Data Cleaning
+## Data Cleaning
 
 Full queries in [`olist_project.sql`](./olist_project.sql) (Part 1). Summary of steps:
 
@@ -49,13 +49,13 @@ Full queries in [`olist_project.sql`](./olist_project.sql) (Part 1). Summary of 
 2. **Null handling** — replaced missing `product_category_name` with `'unknown'`, and filled missing product attribute fields with `0`.
 3. **Column rename** — fixed typos in source column names (`product_name_lenght` → `product_name_length`, etc.).
 
-> ⚠️ **Why NULL date columns were intentionally left untouched:** One of the main goals of this project is to calculate **Delivery Latency / Lead Time** — the time from order placement to actual delivery, using `DATEDIFF()`. If fake/placeholder dates were inserted into these columns instead of NULL, the time-delta calculations would be completely skewed, corrupting the average shipping performance reports. Preserving the NULL state in delivery date columns is essential to represent real-world events accurately.
+>  **Why NULL date columns were intentionally left untouched:** One of the main goals of this project is to calculate **Delivery Latency / Lead Time** — the time from order placement to actual delivery, using `DATEDIFF()`. If fake/placeholder dates were inserted into these columns instead of NULL, the time-delta calculations would be completely skewed, corrupting the average shipping performance reports. Preserving the NULL state in delivery date columns is essential to represent real-world events accurately.
 >
 > As a result, **654 "delivered" records** were excluded from the delivery-performance analysis (Q7) due to missing delivery timestamps — done to preserve data integrity for logistics tracking.
 
 ---
 
-## 📊 Business Questions & Insights
+##  Business Questions & Insights
 
 Full queries in [`olist_project.sql`](./olist_project.sql) (Part 2).
 
@@ -95,7 +95,7 @@ This proves that the company's customer base and market presence expanded rapidl
 3. **Post-festival drop in December 2017** — orders naturally declined to 5,673 once Black Friday offers ended. This isn't a business loss; it's a **normal post-festival drop**, and December's 5,673 orders were still well above pre-festival months like September/October.
 4. **Steady growth through 2018** — monthly orders stayed strong (6,000–7,200/month) from January through August 2018.
 
-> 📝 **Data Limitation Note:** Order volume crashes to near-zero from September 2018 onward (16 orders in Sep, 4 in Oct). This is a **known limitation of the public Olist dataset** — data collection stops around Sep/Oct 2018 — and does **not** reflect a real decline in business performance.
+>  **Data Limitation Note:** Order volume crashes to near-zero from September 2018 onward (16 orders in Sep, 4 in Oct). This is a **known limitation of the public Olist dataset** — data collection stops around Sep/Oct 2018 — and does **not** reflect a real decline in business performance.
 
 ---
 
@@ -112,10 +112,10 @@ This proves that the company's customer base and market presence expanded rapidl
 **Objective:** Analyze the most preferred payment methods used by Olist customers and understand their revenue contribution — helping the business understand customer spending behavior and optimize banking partnerships.
 
 **Insight — three clear trends:**
-- 💳 **Credit card is king** — the dominant payment method, driving over **76,505 orders** and contributing a massive **R$12.54 million** in revenue (78% of total revenue).
-- 🧾 **Boleto is second** — a significant number of customers (19,784 orders) prefer Boleto (local cash voucher), bringing in R$2.87 million.
-- 🪙 **Vouchers & debit cards are low adoption** — vouchers (3,866 orders) and debit cards (1,528 orders) have very low adoption on the platform.
-- 🔍 A negligible **3 orders** have an undefined payment type with R$0 revenue — a minor data quality edge case, not material to the analysis.
+- **Credit card is king** — the dominant payment method, driving over **76,505 orders** and contributing a massive **R$12.54 million** in revenue (78% of total revenue).
+-  **Boleto is second** — a significant number of customers (19,784 orders) prefer Boleto (local cash voucher), bringing in R$2.87 million.
+-  **Vouchers & debit cards are low adoption** — vouchers (3,866 orders) and debit cards (1,528 orders) have very low adoption on the platform.
+-  A negligible **3 orders** have an undefined payment type with R$0 revenue — a minor data quality edge case, not material to the analysis.
 
 ---
 
@@ -165,7 +165,7 @@ This proves that the company's customer base and market presence expanded rapidl
 
 ---
 
-## 💡 Business Recommendations
+##  Business Recommendations
 
 ### 1. Product-Category Based Financing Strategy
 As a data analyst, I recommend a **product-category based financing strategy** to balance both sales volume and profit margins:
@@ -182,7 +182,7 @@ Directly improving these logistics will improve customer loyalty and push averag
 
 ---
 
-## 🔑 Key Takeaways
+##  Key Takeaways
 
 - Olist generated **~R$16M in gross revenue** across **99,440 orders** (2016–2018), with strong YoY growth.
 - **97% order fulfillment rate** — a healthy, well-functioning order pipeline.
@@ -193,7 +193,3 @@ Directly improving these logistics will improve customer loyalty and push averag
 
 ---
 
-## 📫 Connect with Me
-
-- **LinkedIn:** [linkedin.com/in/viswa-dharshini](https://www.linkedin.com/in/viswa-dharshini)
-- **GitHub:** [github.com/dharshiniviswa42-hue](https://github.com/dharshiniviswa42-hue)
